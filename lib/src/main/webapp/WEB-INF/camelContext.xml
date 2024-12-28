@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:camel="http://camel.apache.org/schema/spring"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
+		
+		
+		<camelContext id = "camelContext" useBreadcrumb="true" xmlns="http://camel.apache.org/schema/spring">
+			<route id="avro-to-xml-route">
+				
+            <from uri="file://D:/Naren_old_laptop/Spring-Project/Employee/src/main/java/com/example/Employee/avrooo?fileName=TestAvro 3.avro"/>
+
+            <process ref="avroToXmlProcessor"/>
+
+            <to uri="file://D:/Naren_old_laptop/Spring-Project/Employee/src/main/java/com/example/Employee/avrooo?fileName=Final${header.CamelFileName}.xml"/>
+            
+            </route>
+        </camelContext>
+		
+</beans>
